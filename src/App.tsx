@@ -1,7 +1,6 @@
-import { Component, createEffect, createResource, onMount } from "solid-js"
+import { Component } from "solid-js"
 import { lazy } from "solid-js"
 import { Routes, Route } from "@solidjs/router"
-import { projectsListData } from "./hooks/fetchData"
 
 const Homepage = lazy(() => import("./pages/home"))
 const ProjectDetails = lazy(() => import("./pages/project-details"))
