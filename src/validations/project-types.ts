@@ -1,6 +1,6 @@
 import * as t from "io-ts"
 
-import decodeWith from "../validations"
+import decodeWith from "."
 
 const projectDetailsCodec = t.type(
   {

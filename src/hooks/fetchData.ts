@@ -1,6 +1,9 @@
 import axios from "axios"
 import { createResource, createSignal } from "solid-js"
-import { decodeProjectList, IProjectDetails } from "./project-types"
+import {
+  decodeProjectList,
+  IProjectDetails,
+} from "../validations/project-types"
 
 const baseUrl = "https://api.storyblok.com/v1/cdn"
 const token = "QcidRr0B5ytSNhz7RCptbAtt"
