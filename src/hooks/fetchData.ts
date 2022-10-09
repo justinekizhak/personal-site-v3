@@ -58,6 +58,7 @@ interface IProjectDetails {
   summary: string
   description: string
   full_slug: string
+  name: string
 }
 
 const fetchProjectsList = async (params?: IFetchProject) => {
@@ -93,6 +94,7 @@ const fetchProjectsList = async (params?: IFetchProject) => {
 
   return {
     projectMap,
+    projectsList: projects,
     total,
   }
 }

@@ -1,5 +1,5 @@
 import { useParams } from "@solidjs/router"
-import { projectsListData } from "../hooks/fetchData"
+import { projectsListData } from "../../hooks/fetchData"
 
 export default function ProjectDetails() {
   const params = useParams()
