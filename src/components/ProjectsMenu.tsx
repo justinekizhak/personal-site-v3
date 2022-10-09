@@ -1,6 +1,6 @@
-import { projectsListData } from "~/hooks/fetchData"
 import { A } from "@solidjs/router"
 import { For } from "solid-js"
+import { projectsListData } from "~/hooks/fetchData"
 
 export default function Menu() {
   const data = () => {
@@ -9,11 +9,11 @@ export default function Menu() {
   }
 
   return (
-    <div>
+    <menu>
       Project List
       <For each={data()}>
         {(project) => <A href={project.slug}>{project.name}</A>}
       </For>
-    </div>
+    </menu>
   )
 }

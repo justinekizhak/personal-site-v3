@@ -1,0 +1,8 @@
+#root {
+  @apply h-screen overflow-hidden;
+  @apply bg-dark-500;
+}
+
+main {
+  @apply h-screen w-screen inset-0 overflow-hidden;
+}

@@ -1,8 +1,7 @@
-import { Component } from "solid-js"
-import { lazy } from "solid-js"
-import { Routes, Route } from "@solidjs/router"
-import DefaultLayout from "./layouts/default"
+import { Route, Routes } from "@solidjs/router"
+import { Component, lazy } from "solid-js"
 import Header from "./components/Header"
+import DefaultLayout from "./layouts/default"
 
 const Homepage = lazy(() => import("./pages/home"))
 const ProjectDetails = lazy(() => import("./pages/projects/details"))
@@ -12,16 +11,18 @@ const ProjectList = lazy(() => import("./pages/projects"))
 
 const App: Component = () => {
   return (
-    <DefaultLayout>
+    <div class="h-screen">
       <Header />
-      <Routes>
-        <Route path="/" component={Homepage} />
-        <Route path="/projects" component={ProjectList} />
-        <Route path="/projects/:project-id" component={ProjectDetails} />
-        <Route path="/about-me" component={AboutMe} />
-        <Route path="/contact-me" component={ContactMe} />
-      </Routes>
-    </DefaultLayout>
+      <DefaultLayout>
+        <Routes>
+          <Route path="/" component={Homepage} />
+          <Route path="/projects" component={ProjectList} />
+          <Route path="/projects/:project-id" component={ProjectDetails} />
+          <Route path="/about-me" component={AboutMe} />
+          <Route path="/contact-me" component={ContactMe} />
+        </Routes>
+      </DefaultLayout>
+    </div>
   )
 }
 
