@@ -4,6 +4,8 @@ specifiers:
   '@solidjs/router': ^0.5.0
   animejs: ^3.2.1
   axios: ^1.1.2
+  fp-ts: ^2.12.3
+  io-ts: ^2.2.19
   solid-js: ^1.5.1
   typescript: ^4.8.2
   validate.js: ^0.13.1
@@ -16,6 +18,8 @@ dependencies:
   '@solidjs/router': 0.5.0_solid-js@1.5.1
   animejs: 3.2.1
   axios: 1.1.2
+  fp-ts: 2.12.3
+  io-ts: 2.2.19_fp-ts@2.12.3
   solid-js: 1.5.1
   validate.js: 0.13.1
 
@@ -825,6 +829,10 @@ packages:
       mime-types: 2.1.35
     dev: false
 
+  /fp-ts/2.12.3:
+    resolution: {integrity: sha512-8m0XvW8kZbfnJOA4NvSVXu95mLbPf4LQGwQyqVukIYS4KzSNJiyKSmuZUmbVHteUi6MGkAJGPb0goPZqI+Tsqg==}
+    dev: false
+
   /fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -869,6 +877,14 @@ packages:
   /html-entities/2.3.2:
     resolution: {integrity: sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==}
     dev: true
+
+  /io-ts/2.2.19_fp-ts@2.12.3:
+    resolution: {integrity: sha512-ED0GQwvKRr5C2jqOOJCkuJW2clnbzqFexQ8V7Qsb+VB36S1Mk/OKH7k0FjSe4mjKy9qBRA3OqgVGyFMUEKIubw==}
+    peerDependencies:
+      fp-ts: ^2.5.0
+    dependencies:
+      fp-ts: 2.12.3
+    dev: false
 
   /is-core-module/2.10.0:
     resolution: {integrity: sha512-Erxj2n/LDAZ7H8WNJXd9tw38GYM3dv8rk8Zcs+jJuxYTW7sozH+SS8NtrSjVL1/vpLvWi1hxy96IzjJ3EHTJJg==}
