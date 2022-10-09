@@ -1,4 +1,5 @@
 import { projectsListData } from "../../hooks/fetchData"
+import { A } from "@solidjs/router"
 
 export default function ProjectList() {
   const data = () => {
@@ -6,10 +7,24 @@ export default function ProjectList() {
     return res?.projectsList
   }
 
+  const firstProject = () => {
+    const d = data()
+    if (!d) return { slug: "#", name: "" }
+    return d[0]
+  }
+
+  const lastProject = () => {
+    const d = data()
+    if (!d) return { slug: "#", name: "" }
+    const lastIndex = d.length - 1
+    return d[lastIndex]
+  }
+
   return (
     <div>
       Project List
-      <div>{JSON.stringify(data())}</div>
+      <A href={firstProject().slug}>{firstProject().name}</A>
+      <A href={lastProject().slug}>{lastProject().name}</A>
     </div>
   )
 }

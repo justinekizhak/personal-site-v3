@@ -14,6 +14,7 @@ const projectDetailsCodec = t.type(
       "content"
     ),
     full_slug: t.string,
+    slug: t.string,
     name: t.string,
   },
   "project-details"
