@@ -1,6 +1,7 @@
 import { defineConfig } from "vite"
 import solidPlugin from "vite-plugin-solid"
 import WindiCSS from "vite-plugin-windicss"
+import * as path from "path"
 
 export default defineConfig({
   plugins: [solidPlugin(), WindiCSS()],
@@ -9,5 +10,10 @@ export default defineConfig({
   },
   build: {
     target: "esnext",
+  },
+  resolve: {
+    alias: {
+      "~": path.resolve(__dirname, "src"),
+    },
   },
 })
