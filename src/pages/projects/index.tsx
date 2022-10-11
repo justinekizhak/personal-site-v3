@@ -1,5 +1,5 @@
-import { projectsListData } from "../../hooks/fetchData"
 import { A } from "@solidjs/router"
+import { projectsListData } from "~/hooks/fetchData"
 
 export default function ProjectList() {
   const data = () => {
@@ -9,22 +9,28 @@ export default function ProjectList() {
 
   const firstProject = () => {
     const d = data()
-    if (!d) return { slug: "#", name: "" }
+    if (!d || d.length === 0) return { slug: "#", name: "" }
     return d[0]
   }
 
   const lastProject = () => {
     const d = data()
-    if (!d) return { slug: "#", name: "" }
+    if (!d || d.length === 0) return { slug: "#", name: "" }
     const lastIndex = d.length - 1
     return d[lastIndex]
   }
 
   return (
-    <div>
-      Project List
-      <A href={firstProject().slug}>{firstProject().name}</A>
-      <A href={lastProject().slug}>{lastProject().name}</A>
+    <div class="flex h-full text-white project-list justify-center items-center">
+      <h1>Project List</h1>
+      <div class="flex bottom-10 gap-6 fixed">
+        <A href={firstProject().slug} class="link">
+          {firstProject().name}
+        </A>
+        <A href={lastProject().slug} class="link">
+          {lastProject().name}
+        </A>
+      </div>
     </div>
   )
 }

@@ -6,3 +6,7 @@
 main {
   @apply h-screen w-screen inset-0 overflow-hidden;
 }
+
+.project-list .link {
+  @apply border-b border-white text-white pb-2 no-underline;
+}

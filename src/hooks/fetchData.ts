@@ -1,8 +1,8 @@
 import axios from "axios"
 import { createResource, createSignal } from "solid-js"
 import {
-  decodeProjectList,
   IProjectDetails,
+  validateProjectList,
 } from "../validations/project-types"
 
 const baseUrl = "https://api.storyblok.com/v1/cdn"
@@ -36,7 +36,12 @@ const fetchProjectsList = async (params?: IFetchProject) => {
   })
 
   const rawData = res?.data?.stories
-  const projects: IProjectDetails[] = decodeProjectList(rawData)
+  let projects: IProjectDetails[] = []
+  try {
+    projects = validateProjectList(rawData)
+  } catch (error) {
+    console.error(error)
+  }
   const total = parseInt(res?.headers?.total || "0")
 
   const projectMap: {

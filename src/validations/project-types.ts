@@ -1,27 +1,20 @@
-import * as t from "io-ts"
+import { z } from "zod"
 
-import decodeWith from "."
+const projectDetailsSchema = z.object({
+  content: z.object({
+    title: z.string(),
+    domain: z.string(),
+    summary: z.string(),
+    description: z.string(),
+  }),
+  full_slug: z.string(),
+  slug: z.string(),
+  name: z.string(),
+})
 
-const projectDetailsCodec = t.type(
-  {
-    content: t.type(
-      {
-        title: t.string,
-        domain: t.string,
-        summary: t.string,
-        description: t.string,
-      },
-      "content"
-    ),
-    full_slug: t.string,
-    slug: t.string,
-    name: t.string,
-  },
-  "project-details"
-)
+const projectListSchema = z.array(projectDetailsSchema)
 
-const projectListCodec = t.array(projectDetailsCodec, "project-list")
+export const validateProjectList = (data: unknown): IProjectDetails[] =>
+  projectListSchema.parse(data)
 
-export const decodeProjectList = decodeWith(projectListCodec)
-
-export type IProjectDetails = t.TypeOf<typeof projectDetailsCodec>
+export type IProjectDetails = z.infer<typeof projectDetailsSchema>
