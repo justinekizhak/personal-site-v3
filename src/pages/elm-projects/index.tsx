@@ -8,7 +8,6 @@ export default function ElmTest() {
     if(elmDiv) {
       Elm.Main.init({
         node: elmDiv,
-        flags: "Initial Message"
       })
     }
   })
