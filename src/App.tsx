@@ -8,6 +8,7 @@ const ProjectDetails = lazy(() => import("./pages/projects/details"))
 const AboutMe = lazy(() => import("./pages/about-me"))
 const ContactMe = lazy(() => import("./pages/contact-me"))
 const ProjectList = lazy(() => import("./pages/projects"))
+const ElmTest = lazy(() => import("./pages/elm-projects"))
 
 const App: Component = () => {
   return (
@@ -20,6 +21,7 @@ const App: Component = () => {
           <Route path="/projects/:project-id" component={ProjectDetails} />
           <Route path="/about-me" component={AboutMe} />
           <Route path="/contact-me" component={ContactMe} />
+          <Route path="/elm-test" component={ElmTest} />
         </Routes>
       </DefaultLayout>
     </div>
