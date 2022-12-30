@@ -1,4 +1,5 @@
 // @refresh reload
+import "solid-devtools";
 import { Suspense } from "solid-js";
 import {
   Body,
@@ -9,7 +10,7 @@ import {
   Meta,
   Routes,
   Scripts,
-  Title
+  Title,
 } from "solid-start";
 import "./root.css";
 
