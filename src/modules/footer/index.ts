@@ -1,7 +1,7 @@
-import ViewComponent from "./view";
+import ContentComponent from "./content";
 
 const Module = {
-  Component: ViewComponent,
+  Component: ContentComponent,
 };
 
 export default Module;

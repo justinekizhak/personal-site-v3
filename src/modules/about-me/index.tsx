@@ -1,7 +1,7 @@
 import DefaultLayout from "../layout";
 import ContentComponent from "./content";
 
-const Homepage = () => {
+const AboutMeWrapper = () => {
   return (
     <DefaultLayout.Component>
       <ContentComponent />
@@ -10,7 +10,7 @@ const Homepage = () => {
 };
 
 const Module = {
-  Component: Homepage,
+  Component: AboutMeWrapper,
   ContentComponent,
 };
 

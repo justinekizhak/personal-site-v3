@@ -1,16 +1,16 @@
-import DefaultLayout from "../layout";
 import ContentComponent from "./content";
+import ModalComponent from "./modal";
 
-const Homepage = () => {
+const ContactMeWrapper = () => {
   return (
-    <DefaultLayout.Component>
+    <ModalComponent>
       <ContentComponent />
-    </DefaultLayout.Component>
+    </ModalComponent>
   );
 };
 
 const Module = {
-  Component: Homepage,
+  Component: ContactMeWrapper,
   ContentComponent,
 };
 
