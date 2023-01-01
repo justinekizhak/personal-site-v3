@@ -12,11 +12,12 @@ import {
   Scripts,
   Title,
 } from "solid-start";
-import "./root.css";
+
+import "twind/shim";
 
 export default function Root() {
   return (
-    <Html lang="en" data-theme="light">
+    <Html lang="en" data-theme="light" hidden>
       <Head>
         <Title>Justine Kizhakkinedath</Title>
         <Meta charset="utf-8" />
