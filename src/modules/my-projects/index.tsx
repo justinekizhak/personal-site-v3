@@ -11,7 +11,6 @@ const MyProjectsWrapper = () => {
 
 const Module = {
   Component: MyProjectsWrapper,
-  ContentComponent,
 };
 
 export default Module;

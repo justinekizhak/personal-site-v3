@@ -1,5 +1,5 @@
+import ModalComponent from "./components/modal";
 import ContentComponent from "./content";
-import ModalComponent from "./modal";
 
 const ContactMeWrapper = () => {
   return (
@@ -11,7 +11,6 @@ const ContactMeWrapper = () => {
 
 const Module = {
   Component: ContactMeWrapper,
-  ContentComponent,
 };
 
 export default Module;

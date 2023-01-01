@@ -10,9 +10,9 @@ export default function DefaultLayout(props: DefaultLayoutProps) {
   return (
     <>
       {props.headerComponent}
-      <div class="h-screen flex justify-center items-center">
+      <main class="h-screen flex justify-center items-center">
         {props.children}
-      </div>
+      </main>
       {props.footerComponent}
     </>
   );

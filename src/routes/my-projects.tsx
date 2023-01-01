@@ -1,5 +1,3 @@
-import MyProjects from "~/modules/my-projects";
+import MyProjectsModule from "~/modules/my-projects";
 
-export default function MyProjectsPage() {
-  return <MyProjects.Component />;
-}
+export default MyProjectsModule.Component;

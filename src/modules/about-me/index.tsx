@@ -1,17 +1,16 @@
-import DefaultLayout from "../layout";
+import DefaultLayoutModule from "../layout";
 import ContentComponent from "./content";
 
 const AboutMeWrapper = () => {
   return (
-    <DefaultLayout.Component>
+    <DefaultLayoutModule.Component>
       <ContentComponent />
-    </DefaultLayout.Component>
+    </DefaultLayoutModule.Component>
   );
 };
 
 const Module = {
   Component: AboutMeWrapper,
-  ContentComponent,
 };
 
 export default Module;

@@ -1,13 +1,12 @@
-import ContactMe from "~/modules/contact-me";
+import ContactMeModule from "./contact-me";
 import ContentComponent from "./content";
 
 const HeaderWrapper = () => {
-  return <ContentComponent contactMeComponent={ContactMe.Component} />;
+  return <ContentComponent contactMeComponent={ContactMeModule.Component} />;
 };
 
 const Module = {
   Component: HeaderWrapper,
-  ContentComponent,
 };
 
 export default Module;

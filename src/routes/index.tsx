@@ -1,9 +1,3 @@
-import Homepage from "~/modules/homepage";
+import HomepageModule from "~/modules/homepage";
 
-export default function Home() {
-  return (
-    <main class="">
-      <Homepage.Component />
-    </main>
-  );
-}
+export default HomepageModule.Component;

@@ -1,7 +1,7 @@
 import { JSXElement } from "solid-js";
-import Footer from "~/modules/footer";
-import Header from "~/modules/header";
-import ContentComponent from "./content";
+import DefaultLayoutComponent from "./components/default-layout";
+import Footer from "./components/footer";
+import HeaderModule from "./header";
 
 interface LayoutWrapperProps {
   children: JSXElement;
@@ -9,9 +9,9 @@ interface LayoutWrapperProps {
 
 const LayoutWrapper = (props: LayoutWrapperProps) => {
   return (
-    <ContentComponent
-      headerComponent={Header.Component}
-      footerComponent={Footer.Component}
+    <DefaultLayoutComponent
+      headerComponent={HeaderModule.Component}
+      footerComponent={Footer}
       children={props.children}
     />
   );
@@ -19,7 +19,6 @@ const LayoutWrapper = (props: LayoutWrapperProps) => {
 
 const Module = {
   Component: LayoutWrapper,
-  ContentComponent,
 };
 
 export default Module;
