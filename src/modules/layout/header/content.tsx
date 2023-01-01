@@ -1,17 +1,23 @@
-import { JSXElement } from "solid-js";
+import { tw } from "twind";
+import ContactMeModule from "./contact-me";
 
-interface HeaderProps {
-  contactMeComponent: JSXElement;
+export interface HeaderPublicProps {
+  absolute?: boolean;
 }
 
-export default function Header(props: HeaderProps) {
+export default function Header(props: HeaderPublicProps) {
   return (
-    <nav class="flex justify-between items-center absolute inset-x-0">
-      <div class="mx-4 my-2 flex">
-        <div class="w-8 h-8">JK</div>
+    <nav
+      class={tw({
+        "flex justify-between items-center inset-x-0": true,
+        absolute: props.absolute,
+      })}
+    >
+      <div class={tw("mx-4 my-2 flex")}>
+        <div class={tw("w-8 h-8")}>JK</div>
         <div>toggle music</div>
       </div>
-      {props.contactMeComponent}
+      <ContactMeModule.Component />
     </nav>
   );
 }

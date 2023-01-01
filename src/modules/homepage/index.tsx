@@ -3,7 +3,7 @@ import ContentComponent from "./content";
 
 const Homepage = () => {
   return (
-    <DefaultLayoutModule.Component>
+    <DefaultLayoutModule.Component centerContent={true}>
       <ContentComponent />
     </DefaultLayoutModule.Component>
   );

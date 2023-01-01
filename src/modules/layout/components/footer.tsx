@@ -1,5 +1,6 @@
 import { For } from "solid-js";
 import { A, useLocation } from "solid-start";
+import { tw } from "twind";
 
 interface LinkObject {
   href: string;
@@ -35,12 +36,12 @@ export default function Footer() {
   };
 
   return (
-    <footer class="absolute bottom-0 flex justify-between inset-x-0">
+    <footer class={tw("absolute bottom-0 flex justify-between inset-x-0")}>
       <For each={links}>
         {(link: LinkObject) => {
           const newLink = getLinkObject(link);
           return (
-            <A href={newLink.href} class="mx-4 my-2">
+            <A href={newLink.href} class={tw("mx-4 my-2")}>
               {newLink.text}
             </A>
           );

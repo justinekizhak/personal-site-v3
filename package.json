@@ -15,11 +15,13 @@
   "dependencies": {
     "@solidjs/meta": "^0.28.0",
     "@solidjs/router": "^0.6.0",
+    "axios": "^1.2.2",
     "solid-js": "^1.6.2",
     "solid-start": "^0.2.0",
     "solid-start-vercel": "^0.2.9",
     "twind": "^0.16.19",
-    "undici": "^5.11.0"
+    "undici": "^5.11.0",
+    "zod": "^3.20.2"
   },
   "engines": {
     "node": ">=16"

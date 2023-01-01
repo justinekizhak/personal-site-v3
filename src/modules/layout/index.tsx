@@ -1,17 +1,14 @@
 import { JSXElement } from "solid-js";
-import DefaultLayoutComponent from "./components/default-layout";
-import Footer from "./components/footer";
-import HeaderModule from "./header";
+import DefaultLayoutComponent, { DefaultLayoutPublicProps } from "./content";
 
-interface LayoutWrapperProps {
+interface LayoutWrapperProps extends DefaultLayoutPublicProps {
   children: JSXElement;
 }
 
 const LayoutWrapper = (props: LayoutWrapperProps) => {
   return (
     <DefaultLayoutComponent
-      headerComponent={HeaderModule.Component}
-      footerComponent={Footer}
+      centerContent={props.centerContent}
       children={props.children}
     />
   );
