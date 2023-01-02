@@ -1,4 +1,3 @@
-import { AxiosRequestConfig } from "axios";
 import { createSignal } from "solid-js";
 import { projectListSchema, TProjectDetails } from "./schema";
 
@@ -25,24 +24,23 @@ export const fetchProjectsList = async (params?: IFetchProject) => {
   setPageNumber(page);
   setPerPage(per_page);
 
-  const reqConfig: AxiosRequestConfig = {
-    url: "/stories",
-    baseURL,
-    params: {
-      version: "published",
-      token,
-      cv,
-      page,
-      per_page,
-    },
-  };
+  const res = await fetch(
+    `${baseURL}/stories` +
+      new URLSearchParams({
+        version: "published",
+        token: token,
+        cv: cv + "",
+        page: page + "",
+        per_page: per_page + "",
+      })
+  );
 
-  // const res = await axios(reqConfig);
-  const res: any = {};
+  if (!res.ok) throw new Error(res.status + "");
 
-  const rawData = res?.data?.stories;
+  const data = await res.json();
+  const rawData = data?.stories;
   const projects = projectListSchema.parse(rawData);
-  const total = parseInt(res?.headers?.total || "0");
+  const total = parseInt(res?.headers?.get("total") || "0");
 
   const projectMap: {
     [key: string]: TProjectDetails;
@@ -61,12 +59,14 @@ export const fetchProjectsList = async (params?: IFetchProject) => {
 };
 
 const getVersion = async (): Promise<string | undefined> => {
-  // const res = await axios.get(`${baseURL}/spaces/me`, {
-  //   params: {
-  //     token,
-  //   },
-  // });
-  const res: any = {};
-  const _newCv = res?.data?.space?.version;
+  const res = await fetch(
+    `${baseURL}/spaces/me` +
+      new URLSearchParams({
+        token,
+      })
+  );
+  if (!res.ok) throw new Error(res.status + "");
+  const data = await res.json();
+  const _newCv = data?.space?.version;
   return _newCv;
 };
