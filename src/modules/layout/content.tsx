@@ -18,6 +18,7 @@ export default function DefaultLayout(props: DefaultLayoutProps) {
       <main
         class={tw({
           "h-screen flex justify-center items-center": props.centerContent,
+          "px-6": true,
         })}
       >
         {props.children}

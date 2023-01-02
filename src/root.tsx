@@ -13,15 +13,9 @@ import {
   Title,
 } from "solid-start";
 import { setup, tw } from "twind";
+import tailwindConfig from "../tailwind.config";
 
-setup({
-  theme: {
-    fontFamily: {
-      default: ["Raleway", "sans-serif"],
-      serif: ["Cormorant Garamond", "serif"],
-    },
-  },
-});
+setup(tailwindConfig);
 
 export default function Root() {
   return (
