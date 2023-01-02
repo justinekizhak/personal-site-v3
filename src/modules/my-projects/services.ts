@@ -25,7 +25,7 @@ export const fetchProjectsList = async (params?: IFetchProject) => {
   setPerPage(per_page);
 
   const res = await fetch(
-    `${baseURL}/stories` +
+    `${baseURL}/stories?` +
       new URLSearchParams({
         version: "published",
         token: token,
@@ -60,7 +60,7 @@ export const fetchProjectsList = async (params?: IFetchProject) => {
 
 const getVersion = async (): Promise<string | undefined> => {
   const res = await fetch(
-    `${baseURL}/spaces/me` +
+    `${baseURL}/spaces/me?` +
       new URLSearchParams({
         token,
       })

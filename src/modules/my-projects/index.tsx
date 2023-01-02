@@ -3,6 +3,7 @@ import DefaultLayout from "../layout";
 import ContentComponent, { routeData } from "./content";
 
 const ProjectListError = ({ error }: { error: any }) => {
+  console.warn(error);
   return (
     <div>
       <h1>Something went wrong while fetching my projects list!</h1>
