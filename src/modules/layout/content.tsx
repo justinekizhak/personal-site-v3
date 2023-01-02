@@ -3,11 +3,8 @@ import { tw } from "twind";
 import Footer from "./components/footer";
 import HeaderModule from "./header";
 
-export interface DefaultLayoutPublicProps {
+interface DefaultLayoutProps {
   centerContent?: boolean;
-}
-
-interface DefaultLayoutProps extends DefaultLayoutPublicProps {
   children?: JSXElement;
 }
 

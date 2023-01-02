@@ -1,21 +1,7 @@
-import { JSXElement } from "solid-js";
-import DefaultLayoutComponent, { DefaultLayoutPublicProps } from "./content";
-
-interface LayoutWrapperProps extends DefaultLayoutPublicProps {
-  children: JSXElement;
-}
-
-const LayoutWrapper = (props: LayoutWrapperProps) => {
-  return (
-    <DefaultLayoutComponent
-      centerContent={props.centerContent}
-      children={props.children}
-    />
-  );
-};
+import ContentComponent from "./content";
 
 const Module = {
-  Component: LayoutWrapper,
+  Component: ContentComponent,
 };
 
 export default Module;

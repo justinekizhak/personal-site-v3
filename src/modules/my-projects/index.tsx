@@ -1,15 +1,16 @@
 import { ErrorBoundary } from "solid-js";
-import DefaultLayout from "../layout";
+import DefaultLayoutModule from "../layout";
 import ProjectListError from "./components/error-box";
-import ContentComponent, { routeData } from "./content";
+import ContentComponent from "./content";
+import { routeData } from "./routeData";
 
 const MyProjectsWrapper = () => {
   return (
-    <DefaultLayout.Component>
+    <DefaultLayoutModule.Component>
       <ErrorBoundary fallback={(error) => <ProjectListError error={error} />}>
         <ContentComponent />
       </ErrorBoundary>
-    </DefaultLayout.Component>
+    </DefaultLayoutModule.Component>
   );
 };
 

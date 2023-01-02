@@ -1,15 +1,8 @@
 import { For } from "solid-js";
-import { createRouteData, useRouteData } from "solid-start";
+import { useRouteData } from "solid-start";
 import { tw } from "twind";
 import ProjectCard from "./components/project-card";
-import { fetchProjectsList } from "./services";
-
-export const routeData = () => {
-  const data = createRouteData(async () => {
-    return await fetchProjectsList();
-  });
-  return data;
-};
+import { routeData } from "./routeData";
 
 export default function MyProjectsPage() {
   const routeDataResponse = useRouteData<typeof routeData>();
