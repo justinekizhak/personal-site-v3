@@ -1,18 +1,14 @@
-import axios from "axios";
+import { AxiosRequestConfig } from "axios";
 import { createSignal } from "solid-js";
 import { projectListSchema, TProjectDetails } from "./schema";
 
-const baseUrl = "https://api.storyblok.com/v1/cdn";
+const baseURL = "https://api.storyblok.com/v1/cdn";
 const token = "QcidRr0B5ytSNhz7RCptbAtt";
 
 // Global params
 export const [getPageNumber, setPageNumber] = createSignal(0);
 export const [getPerPage, setPerPage] = createSignal(50);
-export const [getCV, setCV] = createSignal("");
-
-export const param = () => {
-  return { pageNumber: getPageNumber(), perPage: getPerPage() };
-};
+export const [getCV, setCV] = createSignal<string>();
 
 interface IFetchProject {
   cv?: string;
@@ -21,16 +17,28 @@ interface IFetchProject {
 }
 
 export const fetchProjectsList = async (params?: IFetchProject) => {
-  const cv = params?.cv ?? (await getVersion());
-  const res = await axios.get(`${baseUrl}/stories`, {
+  const cv = params?.cv ?? getCV() ?? (await getVersion());
+  const page = params?.pageNumber ?? getPageNumber();
+  const per_page = params?.perPage ?? getPerPage();
+
+  setCV(cv);
+  setPageNumber(page);
+  setPerPage(per_page);
+
+  const reqConfig: AxiosRequestConfig = {
+    url: "/stories",
+    baseURL,
     params: {
       version: "published",
       token,
       cv,
-      page: params?.pageNumber,
-      per_page: params?.perPage,
+      page,
+      per_page,
     },
-  });
+  };
+
+  // const res = await axios(reqConfig);
+  const res: any = {};
 
   const rawData = res?.data?.stories;
   const projects = projectListSchema.parse(rawData);
@@ -53,12 +61,12 @@ export const fetchProjectsList = async (params?: IFetchProject) => {
 };
 
 const getVersion = async (): Promise<string | undefined> => {
-  const res = await axios.get(`${baseUrl}/spaces/me`, {
-    params: {
-      token,
-    },
-  });
+  // const res = await axios.get(`${baseURL}/spaces/me`, {
+  //   params: {
+  //     token,
+  //   },
+  // });
+  const res: any = {};
   const _newCv = res?.data?.space?.version;
-  setCV(_newCv);
   return _newCv;
 };

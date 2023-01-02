@@ -1,9 +1,8 @@
 import { ErrorBoundary } from "solid-js";
 import DefaultLayout from "../layout";
-import ContentComponent from "./content";
+import ContentComponent, { routeData } from "./content";
 
 const ProjectListError = ({ error }: { error: any }) => {
-  console.warn(error);
   return (
     <div>
       <h1>Something went wrong while fetching my projects list!</h1>
@@ -24,6 +23,7 @@ const MyProjectsWrapper = () => {
 
 const Module = {
   Component: MyProjectsWrapper,
+  routeData,
 };
 
 export default Module;
